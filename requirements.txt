@@ -1,0 +1,9 @@
+pandas>=2.0
+numpy>=1.24
+scikit-learn>=1.3
+geopy>=2.4
+tqdm>=4.66
+pyarrow>=14.0  # needed for reading/writing parquet
+jupyterlab>=4.0  # if you're using notebooks
+matplotlib>=3.7  # optional, for visualization
+seaborn>=0.12    # optional, for better plots
