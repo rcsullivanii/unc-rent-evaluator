@@ -29,7 +29,7 @@ We train a Random Forest using only the four student‑supplied or auto‑fetcha
        max_depth=12,
        random_state=42,
        n_jobs=-1
-   )```
+   )
 
 4. **Features:**
 - bedrooms
