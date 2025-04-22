@@ -1,0 +1,11 @@
+# Ignore raw Zillow JSON data
+data/raw/
+
+# VS Code and Python junk
+__pycache__/
+*.pyc
+.vscode/
+*.ipynb_checkpoints
+
+# Virtual environment
+venv/
