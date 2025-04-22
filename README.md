@@ -12,18 +12,31 @@ Geographic filtering: It calculates the distance from each listing to a referenc
 
 It’s stored in a Parquet file because Parquet is a columnar format that provides efficient storage, good compression, and fast querying—advantages that are especially useful when handling large datasets.
 
-## Random Forest 
+## Model Training
 
-We trained a Random Forest Regressor to predict monthly rents (rentZestimate) for properties near UNC Chapel Hill using Zillow data. After filtering out extreme rent outliers (> $5000), we used features such as:
+We train a Random Forest using only the four student‑supplied or auto‑fetchable features:
 
-Bedrooms, bathrooms, living area
+1. **Load minimal dataset:**  
+   `df = pd.read_parquet("../data/processed/zillow_minimal_rent_cleaned.parquet")`  
 
-Distance to campus (miles_to_old_well)
+2. **Train/test split:**  
+   80/20 random split (`random_state=42`)  
 
-Home type and listing status (one-hot encoded)
+3. **Model & hyperparameters:**  
+   ```python
+   rf = RandomForestRegressor(
+       n_estimators=100,
+       max_depth=12,
+       random_state=42,
+       n_jobs=-1
+   )```
 
-📊 Model Performance (on test set):
+4. **Features:**
+- bedrooms
+- bathrooms
+- livingArea
+- miles_to_old_well
 
-R² Score: 0.9294
-
-RMSE: $238.51
+5. **Evaluation metrics (on test set):**
+R²: 0.9093
+RMSE: $270
